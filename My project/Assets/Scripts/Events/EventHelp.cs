@@ -18,9 +18,9 @@ public class EventHelp : EventScript
     {
         
     }
-    public override void DoEvent()
+    public override void DoEvent(int _level)
     {
-        base.DoEvent();
+        base.DoEvent(_level);
 
         for(int x= 0; x< guideObjects.Count; x++)
         {

@@ -19,8 +19,12 @@ public class Interact : MonoBehaviour
     {
         if (other.gameObject.tag == "Interactable")
         {
-            if(Input.GetKeyDown(KeyCode.E))
-            other.gameObject.GetComponent<InteractableScript>().DoInteract();
+            
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                other.gameObject.GetComponent<InteractableScript>().DoInteract();
+            }
         }
     }
 }

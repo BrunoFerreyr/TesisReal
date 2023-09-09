@@ -16,9 +16,9 @@ public class EventMoveObjects : EventScript
     {
         
     }
-    public override void DoEvent()
+    public override void DoEvent(int _level)
     {
-        base.DoEvent();
+        base.DoEvent(_level);
         eventStarted = true;
         PushObjects();
     }

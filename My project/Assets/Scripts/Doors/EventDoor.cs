@@ -10,7 +10,8 @@ public class EventDoor : EventScript
     Vector3 openPosition;
     bool move;  
 
-    public bool HasUsedVision;
+    public bool keyFounded;
+    public bool needsKey;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,16 +40,26 @@ public class EventDoor : EventScript
         }
         
     }
-    public override void DoEvent()
+    public override void DoEvent(int _level)
     {
-        base.DoEvent();
+        base.DoEvent(_level);
         Debug.Log("DoEvent");
-        
-        if (HasUsedVision)
+
+        if (needsKey)
+        {
+            if (keyFounded)
+            {
+                eventStarted = true;
+                move = true;
+            }
+        }
+        else
         {
             eventStarted = true;
             move = true;
+
         }
+
         //this.transform.GetChild(0).transform.Translate(Vector3.up * 0.1f * Time.deltaTime);
         //this.transform.GetChild(0).transform.localPosition = Vector3.MoveTowards(this.transform.GetChild(0).transform.localPosition, openPosition, Time.deltaTime);
     }   

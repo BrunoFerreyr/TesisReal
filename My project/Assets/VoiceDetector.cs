@@ -11,7 +11,7 @@ public class VoiceDetector : MonoBehaviour
     Dictionary<string, Action> wordToAction;
     private Rigidbody rb;
     public GameObject text;
-
+    int level;
     // Start is called before the first frame update
     public List<EventScript> events;
 
@@ -28,7 +28,7 @@ public class VoiceDetector : MonoBehaviour
         wordToAction.Add("gira", Gira);
         wordToAction.Add("salta", Salta);
         wordToAction.Add("Dame Vision", ShowCode);
-        wordToAction.Add("Romper", BreakThings);
+        wordToAction.Add("Empujar", BreakThings);
         wordToAction.Add("1389", OpenDoor);
         wordToAction.Add("Ayuda", Help);
         KeywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
@@ -67,7 +67,7 @@ public class VoiceDetector : MonoBehaviour
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(0);
+                events[x].GetComponent<EventScript>().BuildEvent(0,level);
                 
             }
         }      
@@ -81,7 +81,7 @@ public class VoiceDetector : MonoBehaviour
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(1);
+                events[x].GetComponent<EventScript>().BuildEvent(1,level);
                 //Solo funciona si los numeros en ambos lados son los mismos, con esto cada evento tendra su numero.
             }
         }
@@ -93,13 +93,13 @@ public class VoiceDetector : MonoBehaviour
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(2);
+                events[x].GetComponent<EventScript>().BuildEvent(2,level);
             }
         }
     }
     private void Help()
     {
-        helpEvents[actualHelpNumber].GetComponent<EventScript>().BuildEvent(0);
+        helpEvents[actualHelpNumber].GetComponent<EventScript>().BuildEvent(0,level);
     }
     public void Update()
     {

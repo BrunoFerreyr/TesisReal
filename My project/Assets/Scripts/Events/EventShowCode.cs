@@ -26,9 +26,9 @@ public class EventShowCode : EventScript
     {
         
     }
-    public override void DoEvent()
+    public override void DoEvent(int _level)
     {
-        base.DoEvent();
+        base.DoEvent(_level);
         coroutine = StartEvent();
 
         visionCollider.enabled = true;
@@ -44,7 +44,7 @@ public class EventShowCode : EventScript
         if (hasInformation)
         {
             eventObject.SetActive(true);
-            door.HasUsedVision = true;
+            door.keyFounded = true;
         }
 
         yield return new WaitForSeconds(0.25f);
@@ -80,7 +80,6 @@ public class EventShowCode : EventScript
             }
         }
         eventStarted = false;
-        Debug.Log("door" + door.HasUsedVision);
 
         if(hasInformation)
         eventObject.SetActive(false);
