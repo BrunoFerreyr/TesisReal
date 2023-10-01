@@ -39,7 +39,7 @@ public class VoiceDetector : MonoBehaviour
     
     private void Avanza()
     {
-        rb.AddForce(transform.forward*1000f);
+        //rb.AddForce(transform.forward*1000f);
 
     }
 
@@ -50,7 +50,7 @@ public class VoiceDetector : MonoBehaviour
 
     private void Salta()
     {
-        rb.velocity = transform.up * 5f;
+        //rb.velocity = transform.up * 5f;
     }
     /// <summary>
     /// 1-Creo la palabra en el start
@@ -116,18 +116,18 @@ public class VoiceDetector : MonoBehaviour
 
     private void Verde()
     {
-        GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+        //GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
         Debug.Log("entra1");
     }
 
     private void Rojo()
     {
-        GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+        //GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
     }
 
     private void Azul()
     {
-        GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
+        //GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
         Debug.Log("entra2");
     }
 

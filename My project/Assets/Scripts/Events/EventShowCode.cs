@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EventShowCode : EventScript
@@ -40,6 +41,7 @@ public class EventShowCode : EventScript
     public IEnumerator StartEvent()
     {
         eventStarted = true;
+        visionCollider.enabled = true;
 
         if (hasInformation)
         {
@@ -76,14 +78,18 @@ public class EventShowCode : EventScript
                 {
 
                     visionCollider.GetComponent<VisionCollider>().gameObjectsToHide[x].GetComponent<MeshRenderer>().material = originalMaterials[x];
+                    visionCollider.GetComponent<VisionCollider>().gameObjectsToHide[x].layer = 9;
                 }
             }
+            visionCollider.GetComponent<VisionCollider>().CleanList();
+            originalMaterials.Clear();
         }
         eventStarted = false;
 
         if(hasInformation)
         eventObject.SetActive(false);
     }
-
+    // Tengo que hacer lo de los niveles, para hacer el codigo verifica aca si esta colisionando uno del otro, solo hay un collider 
+    //    con el evento showcode, el gigante. 
   
 }

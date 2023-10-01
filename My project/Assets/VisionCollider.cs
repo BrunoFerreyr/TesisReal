@@ -5,6 +5,7 @@ using UnityEngine;
 public class VisionCollider : MonoBehaviour
 {
     // Start is called before the first frame update
+    
     public List<GameObject> gameObjectsToHide;
     void Start()
     {
@@ -20,7 +21,17 @@ public class VisionCollider : MonoBehaviour
     {
         if(other.gameObject.tag == "Hidden")
         {
-            gameObjectsToHide.Add(other.gameObject);
+            if (other.gameObject.layer == 9)
+            {
+                gameObjectsToHide.Add(other.gameObject);
+                other.gameObject.layer = 8;
+            }
+
         }
+    }
+
+    public void CleanList()
+    {
+        gameObjectsToHide.Clear();
     }
 }
