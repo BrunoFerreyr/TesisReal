@@ -10,6 +10,7 @@ public class ChipInteract : InteractableScript
     {
         base.Interact(_doOnce);
         chipSystem.enabled = true;
+        chipSystem.actualHelpNumber ++;
         Destroy(this.gameObject);
     }
 }

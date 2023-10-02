@@ -16,6 +16,9 @@ public class EventShowCode : EventScript
 
     public int time = 4;
     public bool hasInformation;
+
+    public List<TextScript> textEvents;
+    public int actualNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +36,13 @@ public class EventShowCode : EventScript
         coroutine = StartEvent();
 
         visionCollider.enabled = true;
+        if (!eventStarted)
+        {
+            StartCoroutine(coroutine);
 
-        StartCoroutine(coroutine);
-        
-        
+        }
+
+
     }
     public IEnumerator StartEvent()
     {
@@ -45,15 +51,16 @@ public class EventShowCode : EventScript
 
         if (hasInformation)
         {
-            eventObject.SetActive(true);
-            door.keyFounded = true;
+            //eventObject.SetActive(true);
+           // door.keyFounded = true;
+              textEvents[actualNumber].Show();
         }
 
         yield return new WaitForSeconds(0.25f);
-        if (!hasInformation)
+        if (VoiceDetector.level > 0) 
         {
 
-            eventStarted = true;
+            //eventStarted = true;
 
             visionCollider.enabled = false;
             for (int x = 0; x < visionCollider.GetComponent<VisionCollider>().gameObjectsToHide.Count; x++)
@@ -70,7 +77,7 @@ public class EventShowCode : EventScript
         yield return new WaitForSeconds(time);
       
         
-        if (!hasInformation)
+        if (VoiceDetector.level > 0)
         {
             for (int x = 0; x < visionCollider.GetComponent<VisionCollider>().gameObjectsToHide.Count; x++)
             {
@@ -86,7 +93,6 @@ public class EventShowCode : EventScript
         }
         eventStarted = false;
 
-        if(hasInformation)
         eventObject.SetActive(false);
     }
     // Tengo que hacer lo de los niveles, para hacer el codigo verifica aca si esta colisionando uno del otro, solo hay un collider 

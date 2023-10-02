@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
@@ -11,12 +12,14 @@ public class VoiceDetector : MonoBehaviour
     Dictionary<string, Action> wordToAction;
     private Rigidbody rb;
     public GameObject text;
-    int level;
+    public static int level;
     // Start is called before the first frame update
     public List<EventScript> events;
-
+    public EventShowCode evntView;
     public List<EventScript> helpEvents;
     public int actualHelpNumber;
+
+    public int testin;
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
@@ -67,7 +70,7 @@ public class VoiceDetector : MonoBehaviour
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(0,level);
+                events[x].GetComponent<EventScript>().BuildEvent(0);
                 
             }
         }      
@@ -81,7 +84,7 @@ public class VoiceDetector : MonoBehaviour
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(1,level);
+                events[x].GetComponent<EventScript>().BuildEvent(1);
                 //Solo funciona si los numeros en ambos lados son los mismos, con esto cada evento tendra su numero.
             }
         }
@@ -93,13 +96,13 @@ public class VoiceDetector : MonoBehaviour
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(2,level);
+                events[x].GetComponent<EventScript>().BuildEvent(2);
             }
         }
     }
     private void Help()
     {
-        helpEvents[actualHelpNumber].GetComponent<EventScript>().BuildEvent(0,level);
+        helpEvents[actualHelpNumber].GetComponent<EventScript>().BuildEvent(0);
     }
     public void Update()
     {
@@ -107,6 +110,11 @@ public class VoiceDetector : MonoBehaviour
         {
             actualHelpNumber = 1;
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            level++;
+        }
+        testin = level;
     }
     private void WordRecognized(PhraseRecognizedEventArgs word)
     {
@@ -138,6 +146,16 @@ public class VoiceDetector : MonoBehaviour
         {
             events.Add(other.GetComponent<EventScript>());// va a agregarcada vez que colisiona
         }
+        if (other.gameObject.tag == "EventView")
+        {
+            evntView.hasInformation = true;
+            evntView.actualNumber = other.GetComponent<TextScript>().number;
+        }
+        /*
+         Hay un collider gigante con el script EventShowCode. Al decir Dame Vision,llama al eventshowcode,depende del nivel lo que 
+        hace, si es nivel 0, llama al textscript con el numero que pase anteriormente al colisionar.Es IMPORTANTE tener en cuenta
+        el numero que le pongo a cada textscript y agregarlo a la lista en eventshowcode(textEvents).
+         */
     }
     public void OnTriggerExit(Collider other)
     {
@@ -156,6 +174,10 @@ public class VoiceDetector : MonoBehaviour
                     }
                 }
             }            
+        }
+        if (other.gameObject.tag == "EventView")
+        {
+            evntView.hasInformation = false;
         }
     }
 }

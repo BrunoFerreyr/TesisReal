@@ -8,7 +8,6 @@ public class EventScript : MonoBehaviour
     public bool eventStarted;
     public int type;
     IEnumerator coroutine;
-    public int level;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +19,17 @@ public class EventScript : MonoBehaviour
     {
         
     }
-    public virtual void BuildEvent(int _type,int _level)
+    public virtual void BuildEvent(int _type)
     {
         if (!eventStarted && type == _type)
         {
-            DoEvent(_level);
+            DoEvent(VoiceDetector.level);
             //Sientra aca, hace el evento con normalidad.
            /* coroutine = StartEvent();
             StartCoroutine(coroutine);*/
         }
     }
-
+     
     public virtual void DoEvent(int level)
     {
 

@@ -530,7 +530,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &221286437
 MeshRenderer:
@@ -702,6 +702,12 @@ PrefabInstance:
 --- !u!4 &262197012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1eb252c55ba8cd84b94b565880bd7247,
+    type: 3}
+  m_PrefabInstance: {fileID: 262197011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &262197013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 1eb252c55ba8cd84b94b565880bd7247,
     type: 3}
   m_PrefabInstance: {fileID: 262197011}
   m_PrefabAsset: {fileID: 0}
@@ -1747,6 +1753,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: computer
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9968983a8528af4c8a03e2f23f42960,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9968983a8528af4c8a03e2f23f42960,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9968983a8528af4c8a03e2f23f42960, type: 3}
 --- !u!4 &503742602 stripped
@@ -2062,10 +2078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b3c9f07db5b86449d905cbb363419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventObject: {fileID: 0}
+  eventObject: {fileID: 493934122}
   eventStarted: 0
   type: 0
-  level: 0
   guideObjects:
   - {fileID: 1785658544}
   - {fileID: 493934122}
@@ -2220,7 +2235,6 @@ MonoBehaviour:
   eventObject: {fileID: 1785658544}
   eventStarted: 0
   type: 1
-  level: 0
   keyFounded: 0
   needsKey: 1
 --- !u!4 &698741690
@@ -2985,17 +2999,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059558450}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7dbcc177f12ba64c9958bb01f832b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   events: []
+  evntView: {fileID: 1172645991}
   helpEvents:
   - {fileID: 1767891231}
   - {fileID: 662610367}
   actualHelpNumber: 0
+  testin: 0
 --- !u!65 &1080760111
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3185,7 +3201,7 @@ GameObject:
   - component: {fileID: 1172645992}
   - component: {fileID: 1172645991}
   m_Layer: 6
-  m_Name: EventText (2)
+  m_Name: EventView
   m_TagString: Event
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3220,14 +3236,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventObject: {fileID: 1161721994}
   eventStarted: 0
-  type: 3
-  level: 0
+  type: 0
   door: {fileID: 698741689}
   visionCollider: {fileID: 1914809340}
   transparentMaterial: {fileID: 2100000, guid: fb785290971ee8544a53bd9964d931aa, type: 2}
   originalMaterials: []
   time: 4
   hasInformation: 0
+  textEvents:
+  - {fileID: 1613933591}
+  actualNumber: 2
 --- !u!54 &1172645992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3341,7 +3359,6 @@ MonoBehaviour:
   eventObject: {fileID: 1205366388}
   eventStarted: 0
   type: 2
-  level: 0
   strenght: 1000
 --- !u!65 &1205366390
 BoxCollider:
@@ -3467,13 +3484,14 @@ MonoBehaviour:
   eventObject: {fileID: 1161721994}
   eventStarted: 0
   type: 0
-  level: 1
   door: {fileID: 698741689}
   visionCollider: {fileID: 1914809340}
   transparentMaterial: {fileID: 2100000, guid: fb785290971ee8544a53bd9964d931aa, type: 2}
   originalMaterials: []
   time: 4
   hasInformation: 0
+  textEvents: []
+  actualNumber: 0
 --- !u!54 &1324002050
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4165,7 +4183,7 @@ GameObject:
   - component: {fileID: 1613933591}
   m_Layer: 6
   m_Name: EventText
-  m_TagString: Event
+  m_TagString: EventView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4273,19 +4291,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1613933584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3db4cbc1d328049947d9f1da2c0b52, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f8280aa1797c8e4590682eca23a93fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number: 0
   eventObject: {fileID: 1161721994}
-  eventStarted: 0
-  type: 0
-  level: 0
   door: {fileID: 698741689}
-  visionCollider: {fileID: 1914809340}
-  transparentMaterial: {fileID: 2100000, guid: fb785290971ee8544a53bd9964d931aa, type: 2}
-  originalMaterials: []
-  time: 4
-  hasInformation: 1
 --- !u!1 &1711540827
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,12 +4448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b3c9f07db5b86449d905cbb363419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventObject: {fileID: 0}
+  eventObject: {fileID: 262197013}
   eventStarted: 0
   type: 0
-  level: 0
   guideObjects:
-  - {fileID: 463090035}
+  - {fileID: 262197013}
   originalMaterials: []
   materialColor: {fileID: 2100000, guid: 2d7bf837d091736498d3d921a5ff7762, type: 2}
 --- !u!65 &1777526974
@@ -4759,7 +4769,6 @@ MonoBehaviour:
   eventObject: {fileID: 221286435}
   eventStarted: 0
   type: 1
-  level: 0
   keyFounded: 0
   needsKey: 0
 --- !u!4 &1839607362
@@ -4778,6 +4787,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1879531755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e9968983a8528af4c8a03e2f23f42960,
+    type: 3}
+  m_PrefabInstance: {fileID: 503742601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1879531759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879531755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.02, z: 0.32014525}
+  m_Center: {x: -0.000000008381903, y: -0.000000014901161, z: 0.16007258}
+--- !u!114 &1879531760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879531755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c93385c473f94b4692e44270b6e7e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionEnabled: 1
+  doOnce: 1
 --- !u!65 &1903929328
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4972,7 +5014,7 @@ BoxCollider:
   m_GameObject: {fileID: 6085649863286061519}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.0015667379, y: 0.0265934, z: 0.03999999}
   m_Center: {x: 0.09295834, y: -0.013340364, z: 0.019999996}
