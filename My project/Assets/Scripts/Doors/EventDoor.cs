@@ -35,6 +35,7 @@ public class EventDoor : EventScript
                 move = false;
                 eventStarted = false;
                 Debug.Log("dontmove");
+                VoiceDetector.actualHelpNumber++;
             }
             //SmoothDamp investigar
         }

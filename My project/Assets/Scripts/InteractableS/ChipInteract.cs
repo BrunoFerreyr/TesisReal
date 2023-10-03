@@ -5,12 +5,15 @@ using UnityEngine;
 public class ChipInteract : InteractableScript
 {
     public VoiceDetector chipSystem;
+    public GameObject canvasWords;
     // Start is called before the first frame update
     public override void Interact(bool _doOnce)
     {
         base.Interact(_doOnce);
         chipSystem.enabled = true;
-        chipSystem.actualHelpNumber ++;
+        VoiceDetector.actualHelpNumber ++;
+        canvasWords.SetActive(true);
+
         Destroy(this.gameObject);
     }
 }

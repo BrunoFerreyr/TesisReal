@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EventScript : MonoBehaviour
 {
     public GameObject eventObject;
     public bool eventStarted;
     public int type;
+    public Image sprite;
+    public bool haveSprite;
     IEnumerator coroutine;
     // Start is called before the first frame update
     void Start()
@@ -34,5 +37,29 @@ public class EventScript : MonoBehaviour
     {
 
     }
-    
+    public void ChangeSprite()
+    {
+        if(haveSprite)
+        {
+            if (sprite == null)
+            {
+                Debug.Log("SPRITE NULL");
+            }
+            sprite.color = new Color(255, 255, 0);
+        }
+        
+    }
+    public void WhiteSprite()
+    {
+        if (haveSprite)
+        {
+            if (sprite == null)
+            {
+                Debug.Log("SPRITE NULL");
+            }
+            sprite.color = new Color(255, 255, 255);
+        }
+       
+    }
+    ///Cuando me acerco a un evento, la palabra se pone en amarillo. al interactuar apagar luz, pulsa e para interactuar.
 }

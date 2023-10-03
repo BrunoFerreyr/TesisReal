@@ -17,7 +17,7 @@ public class VoiceDetector : MonoBehaviour
     public List<EventScript> events;
     public EventShowCode evntView;
     public List<EventScript> helpEvents;
-    public int actualHelpNumber;
+    public static int actualHelpNumber;
 
     public int testin;
     void Start()
@@ -145,10 +145,16 @@ public class VoiceDetector : MonoBehaviour
         if(other.gameObject.tag == "Event")
         {
             events.Add(other.GetComponent<EventScript>());// va a agregarcada vez que colisiona
+            if (other.GetComponent<EventScript>() != null)
+            {
+                other.GetComponent<EventScript>().ChangeSprite();
+            }
         }
         if (other.gameObject.tag == "EventView")
         {
             evntView.hasInformation = true;
+            evntView.GetComponent<EventScript>().ChangeSprite();
+
             evntView.actualNumber = other.GetComponent<TextScript>().number;
         }
         /*
@@ -162,13 +168,17 @@ public class VoiceDetector : MonoBehaviour
         if (other.gameObject.tag == "Event")
         {
             int temporalID = other.GetComponent<EventScript>().type;
-            for(int x = 0; x< events.Count; x++)
+            for (int x = 0; x< events.Count; x++)
             {
                 if(events[x] != null)
                 {
 
                     if (temporalID == events[x].type)
                     {
+                        if (other.GetComponent<EventScript>() != null)
+                        {
+                            other.GetComponent<EventScript>().WhiteSprite();
+                        }
                         events.RemoveAt(x);
                         Debug.Log("temporalID" + temporalID+ "wtf"+ x);
                     }
@@ -178,6 +188,8 @@ public class VoiceDetector : MonoBehaviour
         if (other.gameObject.tag == "EventView")
         {
             evntView.hasInformation = false;
+            evntView.GetComponent<EventScript>().WhiteSprite();
+
         }
     }
 }
