@@ -22,4 +22,17 @@ public class EventButton : InteractableScript
         door.DoEvent(0);
         Debug.Log("interact");
     }
+    public override void ShowText()
+    {
+        if (!isText)
+        {
+            textCanvas.ShowText(text);
+        }
+        base.ShowText();
+        Debug.Log("TriggEnter");
+        
+        
+    }
+
+
 }

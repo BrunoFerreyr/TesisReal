@@ -148,6 +148,12 @@ public class VoiceDetector : MonoBehaviour
             if (other.GetComponent<EventScript>() != null)
             {
                 other.GetComponent<EventScript>().ChangeSprite();
+                if (!other.GetComponent<EventScript>().isText)
+                {
+                    other.GetComponent<EventScript>().textCanvas.ShowText(other.GetComponent<EventScript>().text);
+                }
+                other.GetComponent<EventScript>().ShowText();
+
             }
         }
         if (other.gameObject.tag == "EventView")
@@ -178,6 +184,7 @@ public class VoiceDetector : MonoBehaviour
                         if (other.GetComponent<EventScript>() != null)
                         {
                             other.GetComponent<EventScript>().WhiteSprite();
+                            other.GetComponent<EventScript>().ShowText();
                         }
                         events.RemoveAt(x);
                         Debug.Log("temporalID" + temporalID+ "wtf"+ x);

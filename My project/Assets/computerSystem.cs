@@ -18,12 +18,20 @@ public class computerSystem : InteractableScript
     public override void Interact(bool _doOnce)
     {
         base.Interact(_doOnce);
-        if (doOnce)
-        {
+      
             VoiceDetector.level++;
-            doOnce = false;
-        }
+            
+        
         
     }
+    public override void ShowText()
+    {
+        Debug.Log("TriggEnter");
+        if (!isText)
+        {
+            textCanvas.ShowText(text);            
+        }
+        base.ShowText();
 
+    }
 }

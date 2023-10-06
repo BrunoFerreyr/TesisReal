@@ -92,7 +92,9 @@ public class EventShowCode : EventScript
             originalMaterials.Clear();
         }
         eventStarted = false;
+        firstTime = false;
 
+        ShowText();
         eventObject.SetActive(false);
     }
     // Tengo que hacer lo de los niveles, para hacer el codigo verifica aca si esta colisionando uno del otro, solo hay un collider 

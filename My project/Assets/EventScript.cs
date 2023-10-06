@@ -11,6 +11,14 @@ public class EventScript : MonoBehaviour
     public Image sprite;
     public bool haveSprite;
     IEnumerator coroutine;
+
+    public bool doOnce;
+    public bool hasInteracted;
+    public bool isText = false;
+
+    public ShowTextScript textCanvas;
+    public string text;
+    public bool firstTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +35,7 @@ public class EventScript : MonoBehaviour
         if (!eventStarted && type == _type)
         {
             DoEvent(VoiceDetector.level);
+            
             //Sientra aca, hace el evento con normalidad.
            /* coroutine = StartEvent();
             StartCoroutine(coroutine);*/
@@ -61,5 +70,33 @@ public class EventScript : MonoBehaviour
         }
        
     }
+    public virtual void ShowText()
+    {
+        if (firstTime)
+        {
+            if (!isText)
+            {
+
+                if (!hasInteracted)
+                {
+                    textCanvas.gameObject.SetActive(true);
+                    isText = true;
+                }
+
+            }
+            else
+            {
+                textCanvas.gameObject.SetActive(false);
+                isText = false;
+            }
+        }
+        else
+        {
+            textCanvas.gameObject.SetActive(false);
+            isText = false;
+        }
+        
+    }
+    
     ///Cuando me acerco a un evento, la palabra se pone en amarillo. al interactuar apagar luz, pulsa e para interactuar.
 }

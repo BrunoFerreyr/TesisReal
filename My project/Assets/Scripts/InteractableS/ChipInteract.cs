@@ -16,4 +16,14 @@ public class ChipInteract : InteractableScript
 
         Destroy(this.gameObject);
     }
+    public override void ShowText()
+    {
+        Debug.Log("TriggEnter");
+        if (!isText)
+        {
+            textCanvas.ShowText(text);
+        }
+        base.ShowText();
+
+    }
 }
