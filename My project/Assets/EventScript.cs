@@ -70,33 +70,7 @@ public class EventScript : MonoBehaviour
         }
        
     }
-    public virtual void ShowText()
-    {
-        if (firstTime)
-        {
-            if (!isText)
-            {
-
-                if (!hasInteracted)
-                {
-                    textCanvas.gameObject.SetActive(true);
-                    isText = true;
-                }
-
-            }
-            else
-            {
-                textCanvas.gameObject.SetActive(false);
-                isText = false;
-            }
-        }
-        else
-        {
-            textCanvas.gameObject.SetActive(false);
-            isText = false;
-        }
-        
-    }
+    
     
     ///Cuando me acerco a un evento, la palabra se pone en amarillo. al interactuar apagar luz, pulsa e para interactuar.
 }

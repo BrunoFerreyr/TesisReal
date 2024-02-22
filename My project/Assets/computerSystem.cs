@@ -24,14 +24,5 @@ public class computerSystem : InteractableScript
         
         
     }
-    public override void ShowText()
-    {
-        Debug.Log("TriggEnter");
-        if (!isText)
-        {
-            textCanvas.ShowText(text);            
-        }
-        base.ShowText();
-
-    }
+    
 }

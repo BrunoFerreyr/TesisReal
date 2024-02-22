@@ -18,8 +18,11 @@ public class ShowTextScript : MonoBehaviour
     }
     public void ShowText(string _text)
     {
-        text.text = _text;
-        this.gameObject.SetActive(true);
+        if(_text != "")
+        {
+            text.text = _text;
+            this.gameObject.SetActive(true);
+        }      
     }
 
     public void HideText()

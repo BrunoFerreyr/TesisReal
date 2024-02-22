@@ -30,6 +30,6 @@ public class EventMoveObjects : EventScript
         }
         firstTime = false;
         
-        ShowText();
+        textCanvas.HideText();
     }
 }

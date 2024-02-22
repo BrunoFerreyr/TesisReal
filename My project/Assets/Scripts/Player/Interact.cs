@@ -20,7 +20,7 @@ public class Interact : MonoBehaviour
     {
         if (other.gameObject.tag == "Interactable")
         {
-            other.gameObject.GetComponent<InteractableScript>().ShowText();
+            other.gameObject.GetComponent<InteractableScript>().ShowText(0);
         }
     }
     public void OnTriggerStay(Collider other)
@@ -32,7 +32,6 @@ public class Interact : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 other.gameObject.GetComponent<InteractableScript>().DoInteract();
-                other.gameObject.GetComponent<InteractableScript>().ShowText();
                 if (other.gameObject.GetComponent<InteractableScript>().doOnce)
                 {
                     other.gameObject.GetComponent<InteractableScript>().hasInteracted = true;
@@ -48,7 +47,7 @@ public class Interact : MonoBehaviour
         {
             if (!other.gameObject.GetComponent<InteractableScript>().hasInteracted)
             {
-                other.gameObject.GetComponent<InteractableScript>().ShowText();
+                other.gameObject.GetComponent<InteractableScript>().ShowText(1);
             }
         }
     }

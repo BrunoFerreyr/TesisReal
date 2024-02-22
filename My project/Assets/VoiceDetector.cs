@@ -19,10 +19,17 @@ public class VoiceDetector : MonoBehaviour
     public List<EventScript> helpEvents;
     public static int actualHelpNumber;
 
+
     public int testin;
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        AddWords();
+        Debug.Log("entr");
+    }
+    
+    void AddWords()
+    {
         wordToAction = new Dictionary<string, Action>();
         wordToAction.Add("azul", Azul);
         wordToAction.Add("rojo", Rojo);
@@ -37,13 +44,10 @@ public class VoiceDetector : MonoBehaviour
         KeywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
         KeywordRecognizer.OnPhraseRecognized += WordRecognized;
         KeywordRecognizer.Start();
-        Debug.Log("entr");
     }
-    
     private void Avanza()
     {
         //rb.AddForce(transform.forward*1000f);
-
     }
 
     private void Gira()
@@ -65,38 +69,30 @@ public class VoiceDetector : MonoBehaviour
     /// </summary>
     private void ShowCode()
     {
-        //Usamos siempre el mismo numero, al hacer un evento, lo desactivo, entonces el siguiente va a ser el unico con ese numero, y asi suscesivamente.
-        if(events.Count != 0)
-        {
-            for (int x = 0; x < events.Count; x++)
-            {
-                events[x].GetComponent<EventScript>().BuildEvent(0);
-                
-            }
-        }      
+        //Usamos siempre el mismo numero, al hacer un evento, lo desactivo, entonces el siguiente va a ser el unico con ese numero, y asi suscesivamente.        
+        CallEvent(0);
         //Despues esto puede unirse todo, con las palabras cambio un int yllamo a una funcion con el for
     }
     //PUEDO TENER 2 SCRIPTS, UNO CON LOS DIALOGSO SIN EVENTOS, Y CUANDO COLISIONA CON UNO, SE 
     //ACTIVA ESTE.
     private void OpenDoor()
-    {
-        if (events.Count != 0)
-        {
-            for (int x = 0; x < events.Count; x++)
-            {
-                events[x].GetComponent<EventScript>().BuildEvent(1);
-                //Solo funciona si los numeros en ambos lados son los mismos, con esto cada evento tendra su numero.
-            }
-        }
+    {        
+        CallEvent(1);
         //UsarEvent de abajo
     }
     private void BreakThings()
+    {      
+        CallEvent(2);
+    }
+
+    void CallEvent(int eventType)
     {
         if (events.Count != 0)
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(2);
+                events[x].GetComponent<EventScript>().BuildEvent(eventType);
+                //Solo funciona si los numeros en ambos lados son los mismos, con esto cada evento tendra su numero.
             }
         }
     }
@@ -152,7 +148,7 @@ public class VoiceDetector : MonoBehaviour
                 {
                     other.GetComponent<EventScript>().textCanvas.ShowText(other.GetComponent<EventScript>().text);
                 }
-                other.GetComponent<EventScript>().ShowText();
+                //other.GetComponent<EventScript>().ShowText();
 
             }
         }
@@ -184,7 +180,11 @@ public class VoiceDetector : MonoBehaviour
                         if (other.GetComponent<EventScript>() != null)
                         {
                             other.GetComponent<EventScript>().WhiteSprite();
-                            other.GetComponent<EventScript>().ShowText();
+                            if (!other.GetComponent<EventScript>().isText)
+                            {
+                                other.GetComponent<EventScript>().textCanvas.HideText();
+                            }
+                            //other.GetComponent<EventScript>().ShowText();
                         }
                         events.RemoveAt(x);
                         Debug.Log("temporalID" + temporalID+ "wtf"+ x);

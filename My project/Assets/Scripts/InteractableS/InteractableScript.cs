@@ -16,28 +16,25 @@ public class InteractableScript : MonoBehaviour
     {
         if(collisionEnabled)
         Interact(doOnce);
+        ShowText(1);
     }
    
     public virtual void Interact(bool _doOnce)
     {
 
     }
-    public virtual void ShowText()
+    public void ShowText(int showhide)
     {
-        if (!isText)
-        {
-            
+        if (showhide == 0 && text != "")
+        {            
             if (!hasInteracted)
             {
-                textCanvas.gameObject.SetActive(true);
-                isText = true;
-            }
-            
+                textCanvas.ShowText(text);
+            }           
         }
         else
         {
-            textCanvas.gameObject.SetActive(false);
-            isText = false;
+            textCanvas.HideText();
         }
     }
 }
