@@ -8,15 +8,20 @@ using System.Linq;
 public class EventDoor : EventScript
 {
     Vector3 openPosition;
-    bool move;  
+    bool move;
 
+    [SerializeField] Renderer padMaterial;
     public bool keyFounded;
     public bool needsKey;
     [SerializeField] bool isAutomatic;
     // Start is called before the first frame update
     void Start()
     {
-        openPosition = new Vector3(eventObject.transform.localPosition.x, eventObject.transform.localPosition.y + 6, eventObject.transform.localPosition.z);        
+        openPosition = new Vector3(eventObject.transform.localPosition.x, eventObject.transform.localPosition.y + 6, eventObject.transform.localPosition.z);
+        if (!needsKey)
+        {
+            padMaterial.material.SetColor("_EmissionColor", Color.green);
+        }
     }
 
     // Update is called once per frame
