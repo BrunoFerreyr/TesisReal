@@ -58,14 +58,14 @@ public class EventDoor : EventScript
         {
             if (keyFounded)
             {
-                GetComponent<Animator>().SetTrigger("DoorTrigger");
+                GetComponent<Animator>().SetBool("Opened", true);
                 eventStarted = true;
                 move = true;
             }
         }
         else
         {
-            GetComponent<Animator>().SetTrigger("DoorTrigger");
+            GetComponent<Animator>().SetBool("Opened", true);
 
             eventStarted = true;
             move = true;
@@ -102,7 +102,7 @@ public class EventDoor : EventScript
     {
         if(other.gameObject.tag == "Player" && !firstTime && isAutomatic)
         {
-            GetComponent<Animator>().SetTrigger("DoorTrigger");
+            GetComponent<Animator>().SetBool("Opened", true);
         }
     }
 
@@ -110,7 +110,7 @@ public class EventDoor : EventScript
     {
         if (other.gameObject.tag == "Player" && !firstTime && isAutomatic)
         {
-            GetComponent<Animator>().SetTrigger("DoorTrigger");
+            GetComponent<Animator>().SetBool("Opened", false);
         }
     }
 }

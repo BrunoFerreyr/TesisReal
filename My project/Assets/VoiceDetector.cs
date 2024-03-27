@@ -41,6 +41,8 @@ public class VoiceDetector : MonoBehaviour
         wordToAction.Add("Empujar", BreakThings);
         wordToAction.Add("1389", OpenDoor);
         wordToAction.Add("Ayuda", Help);
+        wordToAction.Add("Activar", Activate);
+
         KeywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
         KeywordRecognizer.OnPhraseRecognized += WordRecognized;
         KeywordRecognizer.Start();
@@ -84,7 +86,10 @@ public class VoiceDetector : MonoBehaviour
     {      
         CallEvent(2);
     }
-
+    private void Activate()
+    {
+        CallEvent(3);
+    }
     void CallEvent(int eventType)
     {
         if (events.Count != 0)
