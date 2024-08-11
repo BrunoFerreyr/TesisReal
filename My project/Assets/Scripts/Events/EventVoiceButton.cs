@@ -22,5 +22,7 @@ public class EventVoiceButton : EventScript
     void Interaction()
     {
         door.DoEvent(0);
+        door.isText = true;
+        textCanvas.HideText();
     }
 }

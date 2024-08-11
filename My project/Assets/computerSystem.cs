@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class computerSystem : InteractableScript
 {
+    [SerializeField] GameObject canvas;
+    public Light light;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +20,9 @@ public class computerSystem : InteractableScript
     public override void Interact(bool _doOnce)
     {
         base.Interact(_doOnce);
-      
-            VoiceDetector.level++;
-            
-        
-        
-    }
-    
+        light.color = Color.red;
+        transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
+        canvas.SetActive(false);   
+        VoiceDetector.level++;  
+    }    
 }
