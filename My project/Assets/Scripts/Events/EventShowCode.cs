@@ -17,7 +17,7 @@ public class EventShowCode : EventScript
     public int time = 4;
     public bool hasInformation;
 
-    public List<TextScript> textEvents;
+    public List<EventShowObject> textEvents;
     public int actualNumber;
     // Start is called before the first frame update
     void Start()
@@ -97,7 +97,8 @@ public class EventShowCode : EventScript
         textCanvas.HideText();
         eventObject.SetActive(false);
     }
+    
     // Tengo que hacer lo de los niveles, para hacer el codigo verifica aca si esta colisionando uno del otro, solo hay un collider 
     //    con el evento showcode, el gigante. 
-  
+
 }

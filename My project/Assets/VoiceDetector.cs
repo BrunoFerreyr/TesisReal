@@ -162,7 +162,7 @@ public class VoiceDetector : MonoBehaviour
             evntView.hasInformation = true;
             evntView.GetComponent<EventScript>().ChangeSprite();
 
-            evntView.actualNumber = other.GetComponent<TextScript>().number;
+            evntView.actualNumber = other.GetComponent<EventShowObject>().number;
         }
         /*
          Hay un collider gigante con el script EventShowCode. Al decir Dame Vision,llama al eventshowcode,depende del nivel lo que 

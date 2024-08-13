@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextScript : MonoBehaviour
+public class EventShowObject : EventScript
 {
-    int type;
     public int number;
-    public GameObject eventObject;
+    [SerializeField] private float _activatedTime;
     public EventDoor door;
     // Start is called before the first frame update
     void Start()
@@ -19,17 +18,23 @@ public class TextScript : MonoBehaviour
     {
         
     }
+    public override void DoEvent(int level)
+    {
+        Show();
+    }
     public void Show()
     {
+        eventStarted = true;
         eventObject.SetActive(true);
-        door.keyFounded = true;
-        if (type == 0)
+        Invoke("Hide",_activatedTime);
+        if(door != null)
         {
-
+            door.keyFounded = true;
         }
     }
     public void Hide()
     {
         eventObject.SetActive(false);
+        eventStarted = false;
     }
 }

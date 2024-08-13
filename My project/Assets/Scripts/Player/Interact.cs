@@ -22,6 +22,10 @@ public class Interact : MonoBehaviour
         {
             other.gameObject.GetComponent<InteractableScript>().ShowText(0);
         }
+        if (other.gameObject.tag == "Event")
+        {
+
+        }
     }
     public void OnTriggerStay(Collider other)
     {

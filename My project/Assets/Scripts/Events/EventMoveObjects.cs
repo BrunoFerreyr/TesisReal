@@ -29,7 +29,7 @@ public class EventMoveObjects : EventScript
             eventObject.transform.GetChild(x).GetComponent<Rigidbody>().AddExplosionForce(strenght, eventObject.transform.position,1000);
         }
         firstTime = false;
-        
+        eventStarted = false;
         textCanvas.HideText();
     }
 }

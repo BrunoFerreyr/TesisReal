@@ -13,10 +13,11 @@ using UnityEngine.Events;
 
 internal class SpeechRecognizer : MonoBehaviour {
     public string LanguageModelDirPath = "SpeechRecognitionSystem/model/english_small";
-    bool doingAction;
+    public static bool doingAction;
     public void OnDataProviderReady( IAudioProvider audioProvider ) {
         _audioProvider = audioProvider;
     }
+   
 
     [System.Serializable]
     public class MessageEvent : UnityEvent<string> { }
@@ -132,8 +133,7 @@ internal class SpeechRecognizer : MonoBehaviour {
                 if ( part != string.Empty && !doingAction)
                 {
                     PartialResultReceived?.Invoke(part);
-
-                    Debug.Log(part);
+                    PlayerEvent.CallEvent(part);
                     _recognitionPartialResultsQueue.Clear();
                     doingAction = true;
                 }                  
@@ -141,7 +141,6 @@ internal class SpeechRecognizer : MonoBehaviour {
             if ( _recognitionFinalResultsQueue.TryDequeue( out string result ) ) {
                 if ( result != string.Empty)
                 {
-                    Debug.Log(result);
                     ResultReceived?.Invoke(result);
                 }
             }

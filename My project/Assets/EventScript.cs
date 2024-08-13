@@ -10,7 +10,6 @@ public class EventScript : MonoBehaviour
     public int type;
     public Image sprite;
     public bool haveSprite;
-    IEnumerator coroutine;
 
     public bool doOnce;
     public bool hasInteracted;
@@ -41,7 +40,11 @@ public class EventScript : MonoBehaviour
             StartCoroutine(coroutine);*/
         }
     }
-     
+    public virtual void BuildEvent()
+    {
+        if (!eventStarted)
+        DoEvent(VoiceDetector.level);
+    }
     public virtual void DoEvent(int level)
     {
 
@@ -70,7 +73,22 @@ public class EventScript : MonoBehaviour
         }
        
     }
-    
-    
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("coll");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerEvent.AddEventToList(text, BuildEvent);
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerEvent.DeleteEventFromList(text);
+        }
+    }
     ///Cuando me acerco a un evento, la palabra se pone en amarillo. al interactuar apagar luz, pulsa e para interactuar.
 }
