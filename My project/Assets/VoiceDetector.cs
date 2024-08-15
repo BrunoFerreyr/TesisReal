@@ -96,14 +96,14 @@ public class VoiceDetector : MonoBehaviour
         {
             for (int x = 0; x < events.Count; x++)
             {
-                events[x].GetComponent<EventScript>().BuildEvent(eventType);
+                //events[x].GetComponent<EventScript>().BuildEvent(eventType);
                 //Solo funciona si los numeros en ambos lados son los mismos, con esto cada evento tendra su numero.
             }
         }
     }
     private void Help()
     {
-        helpEvents[actualHelpNumber].GetComponent<EventScript>().BuildEvent(0);
+        //helpEvents[actualHelpNumber].GetComponent<EventScript>().BuildEvent(0);
     }
     public void Update()
     {

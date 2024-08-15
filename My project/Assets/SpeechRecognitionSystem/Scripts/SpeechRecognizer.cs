@@ -100,7 +100,6 @@ internal class SpeechRecognizer : MonoBehaviour {
     private void onReceiveLogMess( string message ) {
         if (!doingAction)
         {
-            doingAction = true;
             Debug.Log("OnReceiveLogMess");
             LogMessageReceived?.Invoke(message);
         }
@@ -112,10 +111,7 @@ internal class SpeechRecognizer : MonoBehaviour {
         tryToInitLanguageModel( );
 
         tryToInitSpeechRecognizer( );
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            doingAction = false;
-        }
+       
         if ( _audioProvider is AudioRecorder mic ) {
             micIsRecording = mic.IsRecording( );
         }
@@ -135,6 +131,7 @@ internal class SpeechRecognizer : MonoBehaviour {
                     PartialResultReceived?.Invoke(part);
                     PlayerEvent.CallEvent(part);
                     _recognitionPartialResultsQueue.Clear();
+                    Debug.Log("action");
                     doingAction = true;
                 }                  
             }
@@ -157,7 +154,14 @@ internal class SpeechRecognizer : MonoBehaviour {
                 if ( isOk ) {
                     int resultReady = _sr.AppendAudioData( audioData );
                     if ( resultReady == 0 ) {
-                        _recognitionPartialResultsQueue.Enqueue( _sr.GetPartialResult( )?.partial );
+                        if (!doingAction)
+                        {
+                            _recognitionPartialResultsQueue.Enqueue(_sr.GetPartialResult()?.partial);
+                        }
+                        else
+                        {
+                            _recognitionPartialResultsQueue.Clear();
+                        }
                     }
                     else {
                         _recognitionFinalResultsQueue.Enqueue( _sr.GetResult( )?.text );
@@ -190,9 +194,24 @@ internal class SpeechRecognizer : MonoBehaviour {
             recognizerActivity.Call( "tryCopyStreamingAssets2ExternalStorage", modelDirPath );
         }
     }
+    public static void Play()
+    {
+        if (_audioProvider is AudioRecorder mic)
+        {
+            mic.OnStart();
+        }
+    }
+
+    public static void Stop()
+    {
+        if (_audioProvider is AudioRecorder mic)
+        {
+            mic.OnStop();
+        }
+    }
 
     private SpeechRecognitionSystem.SpeechRecognizer _sr = null;
-    private IAudioProvider _audioProvider = null;
+    private static IAudioProvider _audioProvider = null;
     private bool _init = false;
     private bool _copyRequested = false;
 

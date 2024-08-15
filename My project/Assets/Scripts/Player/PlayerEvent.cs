@@ -9,7 +9,7 @@ public static class PlayerEvent
 
     public static void CallEvent(string speechWord)
     {
-        Debug.Log(speechWord);
+
         if (eventsDictionary.ContainsKey(speechWord))
         {
             eventsDictionary.GetValueOrDefault(speechWord)?.Invoke();

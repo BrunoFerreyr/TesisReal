@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 
 public class EventScript : MonoBehaviour
 {
+    [SerializeField]protected string id;
     public GameObject eventObject;
     public bool eventStarted;
     public int type;
@@ -18,6 +20,7 @@ public class EventScript : MonoBehaviour
     public ShowTextScript textCanvas;
     public string text;
     public bool firstTime;
+    private float _callbackTime = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +30,17 @@ public class EventScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SpeechRecognizer.doingAction = false;
+        }
+        Debug.Log(SpeechRecognizer.doingAction);
     }
     public virtual void BuildEvent(int _type)
     {
         if (!eventStarted && type == _type)
         {
             DoEvent(VoiceDetector.level);
-            
             //Sientra aca, hace el evento con normalidad.
            /* coroutine = StartEvent();
             StartCoroutine(coroutine);*/
@@ -47,7 +53,18 @@ public class EventScript : MonoBehaviour
     }
     public virtual void DoEvent(int level)
     {
+        SpeechRecognizer.Stop();
+        StartCoroutine(EndEvent());
+    }
 
+    public IEnumerator EndEvent()
+    {
+
+        yield return new WaitForSeconds(_callbackTime);
+        Debug.Log("end");
+        SpeechRecognizer.Play();
+
+        SpeechRecognizer.doingAction = false;
     }
     public void ChangeSprite()
     {
@@ -74,20 +91,20 @@ public class EventScript : MonoBehaviour
        
     }
 
-    public void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         Debug.Log("coll");
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerEvent.AddEventToList(text, BuildEvent);
+            PlayerEvent.AddEventToList(id,BuildEvent);
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerEvent.DeleteEventFromList(text);
+            PlayerEvent.DeleteEventFromList(id);
         }
     }
     ///Cuando me acerco a un evento, la palabra se pone en amarillo. al interactuar apagar luz, pulsa e para interactuar.

@@ -20,6 +20,7 @@ public class EventShowObject : EventScript
     }
     public override void DoEvent(int level)
     {
+        base.DoEvent(level);
         Show();
     }
     public void Show()

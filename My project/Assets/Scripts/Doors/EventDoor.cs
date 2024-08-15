@@ -30,24 +30,8 @@ public class EventDoor : EventScript
         if (Input.GetKeyDown(KeyCode.N))
         {
             move = true;
-        }
-        /*if (move)
-        {
-           // float pos = this.transform.GetChild(0).transform.localPosition.y - openPosition.y;
-           // eventObject.transform.localPosition = Vector3.MoveTowards(eventObject.transform.localPosition, openPosition, Time.deltaTime*4);
-            //Debug.Log("dontmove"+ pos);
-            if (eventObject.transform.localPosition.y -openPosition.y >= -0.5f)
-            {
-                move = false;
-                eventStarted = false;
-                Debug.Log("dontmove");
-               // ShowText();
-                firstTime = false;
-                VoiceDetector.actualHelpNumber++;
-            }
-            //SmoothDamp investigar
-        }*/
-        
+        }  
+       
     }
     public override void DoEvent(int _level)
     {
@@ -71,9 +55,6 @@ public class EventDoor : EventScript
             move = true;
 
         }
-
-        //this.transform.GetChild(0).transform.Translate(Vector3.up * 0.1f * Time.deltaTime);
-        //this.transform.GetChild(0).transform.localPosition = Vector3.MoveTowards(this.transform.GetChild(0).transform.localPosition, openPosition, Time.deltaTime);
     }  
     
 
@@ -98,16 +79,9 @@ public class EventDoor : EventScript
         transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Player" && !firstTime && isAutomatic)
-        {
-            GetComponent<Animator>().SetBool("Opened", true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
+        base.OnTriggerExit(other);
         if (other.gameObject.tag == "Player" && !firstTime && isAutomatic)
         {
             GetComponent<Animator>().SetBool("Opened", false);
