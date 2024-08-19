@@ -12368,11 +12368,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 0}
-  text: 
-  firstTime: 0
   guideObjects:
   - {fileID: 1785658544}
   originalMaterials: []
@@ -13090,9 +13085,9 @@ GameObject:
   - component: {fileID: 698741692}
   - component: {fileID: 698741693}
   m_Layer: 0
-  m_Name: DoorSlide
+  m_Name: Door 02 EVENT
   m_TagString: Event
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13115,15 +13110,10 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 162187947}
-  text: Al ver el codigo, debes decirlo para abrir la puerta
-  firstTime: 1
   padMaterial: {fileID: 1011468140}
+  _doorAnimator: {fileID: 0}
   keyFounded: 0
   needsKey: 1
-  isAutomatic: 1
 --- !u!4 &698741690
 Transform:
   m_ObjectHideFlags: 0
@@ -21199,11 +21189,6 @@ MonoBehaviour:
   sprite: {fileID: 1531695576}
   haveSprite: 1
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 162187947}
-  text: Mostrar
-  firstTime: 0
   door: {fileID: 698741689}
   visionCollider: {fileID: 1914809340}
   transparentMaterial: {fileID: 2100000, guid: fb785290971ee8544a53bd9964d931aa, type: 2}
@@ -22011,9 +21996,9 @@ GameObject:
   - component: {fileID: 1205366389}
   - component: {fileID: 1205366392}
   m_Layer: 0
-  m_Name: EventPushObject
+  m_Name: Push objects EVENT
   m_TagString: Event
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -22036,11 +22021,6 @@ MonoBehaviour:
   sprite: {fileID: 1717772524}
   haveSprite: 1
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 162187947}
-  text: empujar
-  firstTime: 1
   strenght: 1000
 --- !u!65 &1205366390
 BoxCollider:
@@ -23499,9 +23479,9 @@ GameObject:
   - component: {fileID: 1266529462}
   - component: {fileID: 1266529461}
   m_Layer: 0
-  m_Name: DoorSlide (1)
+  m_Name: Door 02 EVENT
   m_TagString: Event
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -23573,15 +23553,10 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 1
-  textCanvas: {fileID: 0}
-  text: 
-  firstTime: 0
   padMaterial: {fileID: 1711143324}
+  _doorAnimator: {fileID: 0}
   keyFounded: 0
   needsKey: 0
-  isAutomatic: 1
 --- !u!4 &1266529465
 Transform:
   m_ObjectHideFlags: 0
@@ -24751,11 +24726,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 0}
-  text: 
-  firstTime: 0
   door: {fileID: 698741689}
   visionCollider: {fileID: 1914809340}
   transparentMaterial: {fileID: 2100000, guid: fb785290971ee8544a53bd9964d931aa, type: 2}
@@ -28232,11 +28202,6 @@ MonoBehaviour:
   sprite: {fileID: 949342490}
   haveSprite: 1
   doOnce: 1
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 162187947}
-  text: Di "Activar" si no alcanzas el boton
-  firstTime: 0
   door: {fileID: 2027998015}
 --- !u!54 &1552545522
 Rigidbody:
@@ -29887,11 +29852,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 0}
-  text: mostrar
-  firstTime: 0
   number: 0
   _activatedTime: 4
   door: {fileID: 698741689}
@@ -32557,11 +32517,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 0}
-  text: 
-  firstTime: 0
   guideObjects:
   - {fileID: 262197013}
   originalMaterials: []
@@ -36000,11 +35955,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 0}
-  text: 
-  firstTime: 0
   guideObjects:
   - {fileID: 1785658544}
   originalMaterials: []
@@ -36676,15 +36626,10 @@ MonoBehaviour:
   sprite: {fileID: 0}
   haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 162187947}
-  text: Necesita electricidad
-  firstTime: 1
   padMaterial: {fileID: 1662362969}
+  _doorAnimator: {fileID: 0}
   keyFounded: 0
   needsKey: 0
-  isAutomatic: 0
 --- !u!4 &2027998016
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class VoiceDetector : MonoBehaviour
     public static int level;
     // Start is called before the first frame update
     public List<EventScript> events;
-    public EventShowCode evntView;
     public List<EventScript> helpEvents;
     public static int actualHelpNumber;
 
@@ -149,21 +148,12 @@ public class VoiceDetector : MonoBehaviour
             if (other.GetComponent<EventScript>() != null)
             {
                 other.GetComponent<EventScript>().ChangeSprite();
-                if (!other.GetComponent<EventScript>().isText)
-                {
-                    other.GetComponent<EventScript>().textCanvas.ShowText(other.GetComponent<EventScript>().text);
-                }
+                
                 //other.GetComponent<EventScript>().ShowText();
 
             }
         }
-        if (other.gameObject.tag == "EventView")
-        {
-            evntView.hasInformation = true;
-            evntView.GetComponent<EventScript>().ChangeSprite();
-
-            evntView.actualNumber = other.GetComponent<EventShowObject>().number;
-        }
+      
         /*
          Hay un collider gigante con el script EventShowCode. Al decir Dame Vision,llama al eventshowcode,depende del nivel lo que 
         hace, si es nivel 0, llama al textscript con el numero que pase anteriormente al colisionar.Es IMPORTANTE tener en cuenta
@@ -185,10 +175,7 @@ public class VoiceDetector : MonoBehaviour
                         if (other.GetComponent<EventScript>() != null)
                         {
                             other.GetComponent<EventScript>().WhiteSprite();
-                            if (!other.GetComponent<EventScript>().isText)
-                            {
-                                other.GetComponent<EventScript>().textCanvas.HideText();
-                            }
+                            
                             //other.GetComponent<EventScript>().ShowText();
                         }
                         events.RemoveAt(x);
@@ -197,11 +184,6 @@ public class VoiceDetector : MonoBehaviour
                 }
             }            
         }
-        if (other.gameObject.tag == "EventView")
-        {
-            evntView.hasInformation = false;
-            evntView.GetComponent<EventScript>().WhiteSprite();
-
-        }
+       
     }
 }

@@ -7,32 +7,19 @@ using System.Linq;
 
 public class EventDoor : EventScript
 {
-    Vector3 openPosition;
-    bool move;
-
     [SerializeField] Renderer padMaterial;
+    [SerializeField] Animator _doorAnimator;
     public bool keyFounded;
     public bool needsKey;
-    [SerializeField] bool isAutomatic;
     // Start is called before the first frame update
     void Start()
     {
-        openPosition = new Vector3(eventObject.transform.localPosition.x, eventObject.transform.localPosition.y + 6, eventObject.transform.localPosition.z);
         if (!needsKey)
         {
             padMaterial.material.SetColor("_EmissionColor", Color.green);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            move = true;
-        }  
-       
-    }
     public override void DoEvent(int _level)
     {
         base.DoEvent(_level);
@@ -42,18 +29,15 @@ public class EventDoor : EventScript
         {
             if (keyFounded)
             {
-                GetComponent<Animator>().SetBool("Opened", true);
+                _doorAnimator.SetBool("Opened", true);
                 eventStarted = true;
-                move = true;
             }
         }
         else
         {
-            GetComponent<Animator>().SetBool("Opened", true);
+            _doorAnimator.SetBool("Opened", true);
 
             eventStarted = true;
-            move = true;
-
         }
     }  
     
@@ -61,16 +45,7 @@ public class EventDoor : EventScript
     public void OpenEmission()
     {
         transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
-        transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
-        if (firstTime)
-        {
-            move = false;
-            eventStarted = false;
-            Debug.Log("dontmove");
-            textCanvas.HideText();
-            firstTime = false;
-            VoiceDetector.actualHelpNumber++;
-        }       
+        transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);           
     }
 
     public void CloseEmission()
@@ -82,9 +57,9 @@ public class EventDoor : EventScript
     public override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        if (other.gameObject.tag == "Player" && !firstTime && isAutomatic)
+        if (other.gameObject.tag == "Player" && _doorAnimator.GetBool("Opened"))
         {
-            GetComponent<Animator>().SetBool("Opened", false);
+            _doorAnimator.SetBool("Opened", false);
         }
     }
 }

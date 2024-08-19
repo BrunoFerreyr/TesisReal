@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventVoiceButton : EventScript
+public class EventInteract : EventScript
 {
-    public EventDoor door;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +14,16 @@ public class EventVoiceButton : EventScript
     public override void DoEvent(int level)
     {
         base.DoEvent(level);
-        eventStarted = true;
-        Interaction();
+        StartInteraction();
     }
 
-    void Interaction()
+    public virtual void StartInteraction()
     {
-        door.DoEvent(0);
-        door.isText = true;
-        textCanvas.HideText();
+        eventStarted = true;
+    }
+
+    public virtual void EndInteraction()
+    {
+        eventStarted = false;
     }
 }

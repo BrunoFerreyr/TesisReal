@@ -14,12 +14,7 @@ public class EventScript : MonoBehaviour
     public bool haveSprite;
 
     public bool doOnce;
-    public bool hasInteracted;
-    public bool isText = false;
 
-    public ShowTextScript textCanvas;
-    public string text;
-    public bool firstTime;
     private float _callbackTime = 1;
     // Start is called before the first frame update
     void Start()
