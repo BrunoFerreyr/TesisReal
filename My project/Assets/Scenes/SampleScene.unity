@@ -4772,12 +4772,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 262197011}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &262197013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 1eb252c55ba8cd84b94b565880bd7247,
-    type: 3}
-  m_PrefabInstance: {fileID: 262197011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &266806028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12361,18 +12355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b3c9f07db5b86449d905cbb363419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  eventObject: {fileID: 0}
-  eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
-  doOnce: 0
-  guideObjects:
-  - {fileID: 1785658544}
-  originalMaterials: []
-  materialColor: []
-  brightMaterial: {fileID: 2100000, guid: 2d7bf837d091736498d3d921a5ff7762, type: 2}
 --- !u!1 &663297054
 GameObject:
   m_ObjectHideFlags: 0
@@ -13111,7 +13093,7 @@ MonoBehaviour:
   haveSprite: 0
   doOnce: 0
   padMaterial: {fileID: 1011468140}
-  _doorAnimator: {fileID: 0}
+  _doorAnimator: {fileID: 698741693}
   keyFounded: 0
   needsKey: 1
 --- !u!4 &698741690
@@ -19059,7 +19041,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   events: []
-  evntView: {fileID: 1172645991}
   helpEvents:
   - {fileID: 1767891231}
   - {fileID: 662610367}
@@ -21182,22 +21163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3db4cbc1d328049947d9f1da2c0b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  eventObject: {fileID: 1161721994}
-  eventStarted: 0
-  type: 0
-  sprite: {fileID: 1531695576}
-  haveSprite: 1
-  doOnce: 0
-  door: {fileID: 698741689}
-  visionCollider: {fileID: 1914809340}
-  transparentMaterial: {fileID: 2100000, guid: fb785290971ee8544a53bd9964d931aa, type: 2}
-  originalMaterials: []
-  time: 4
-  hasInformation: 0
-  textEvents:
-  - {fileID: 1613933591}
-  actualNumber: 2
 --- !u!54 &1172645992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22014,7 +21979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9374b26ce6500a4984e86acf2487c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: empujar
   eventObject: {fileID: 1205366388}
   eventStarted: 0
   type: 2
@@ -24719,21 +24684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3db4cbc1d328049947d9f1da2c0b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  eventObject: {fileID: 1161721994}
-  eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
-  doOnce: 0
-  door: {fileID: 698741689}
-  visionCollider: {fileID: 1914809340}
-  transparentMaterial: {fileID: 2100000, guid: fb785290971ee8544a53bd9964d931aa, type: 2}
-  originalMaterials: []
-  time: 4
-  hasInformation: 0
-  textEvents: []
-  actualNumber: 0
 --- !u!54 &1324002050
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28095,8 +28045,8 @@ GameObject:
   - component: {fileID: 1552545519}
   - component: {fileID: 1552545518}
   - component: {fileID: 1552545517}
-  - component: {fileID: 1552545521}
   - component: {fileID: 1552545522}
+  - component: {fileID: 1552545523}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Event
@@ -28183,26 +28133,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1552545521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552545515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ace666221d62b645823247eab38773c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
-  eventObject: {fileID: 1552545515}
-  eventStarted: 0
-  type: 3
-  sprite: {fileID: 949342490}
-  haveSprite: 1
-  doOnce: 1
-  door: {fileID: 2027998015}
 --- !u!54 &1552545522
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28219,6 +28149,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1552545523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552545515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44059d6da9df7214981ac512139e247f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: tocar
+  eventObject: {fileID: 1552545515}
+  eventStarted: 0
+  type: 3
+  sprite: {fileID: 949342490}
+  haveSprite: 1
+  doOnce: 1
+  _doCallback: 1
+  _interactable: {fileID: 2027998017}
 --- !u!1001 &1556922050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32510,18 +32461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b3c9f07db5b86449d905cbb363419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  eventObject: {fileID: 262197013}
-  eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
-  doOnce: 0
-  guideObjects:
-  - {fileID: 262197013}
-  originalMaterials: []
-  materialColor: []
-  brightMaterial: {fileID: 2100000, guid: 2d7bf837d091736498d3d921a5ff7762, type: 2}
 --- !u!1001 &1772825174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34331,13 +34270,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44059d6da9df7214981ac512139e247f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionEnabled: 1
+  id: 
+  eventObject: {fileID: 0}
+  eventStarted: 0
+  type: 0
+  sprite: {fileID: 0}
+  haveSprite: 0
   doOnce: 0
-  hasInteracted: 0
-  isText: 0
-  textCanvas: {fileID: 162187947}
-  text: Pulsa E para interactuar y abrir la puerta
-  door: {fileID: 2027998015}
+  _doCallback: 0
+  _interactable: {fileID: 0}
 --- !u!65 &1911230848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35948,18 +35889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b3c9f07db5b86449d905cbb363419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  eventObject: {fileID: 0}
-  eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
-  doOnce: 0
-  guideObjects:
-  - {fileID: 1785658544}
-  originalMaterials: []
-  materialColor: []
-  brightMaterial: {fileID: 2100000, guid: 2d7bf837d091736498d3d921a5ff7762, type: 2}
 --- !u!1 &1996498081
 GameObject:
   m_ObjectHideFlags: 0
@@ -36547,10 +36476,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027998016}
-  - component: {fileID: 2027998015}
   - component: {fileID: 2027998014}
   - component: {fileID: 2027998013}
   - component: {fileID: 2027998012}
+  - component: {fileID: 2027998017}
   m_Layer: 0
   m_Name: DoorSlide (2)
   m_TagString: Event
@@ -36607,29 +36536,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.8836355, y: 7.0066133, z: 10.142795}
   m_Center: {x: 1.3740568, y: 3.0033069, z: 0.5928849}
---- !u!114 &2027998015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027998011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aef848d7a1711cb4a980112ef72ec085, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
-  eventObject: {fileID: 286211927}
-  eventStarted: 0
-  type: 1
-  sprite: {fileID: 0}
-  haveSprite: 0
-  doOnce: 0
-  padMaterial: {fileID: 1662362969}
-  _doorAnimator: {fileID: 0}
-  keyFounded: 0
-  needsKey: 0
 --- !u!4 &2027998016
 Transform:
   m_ObjectHideFlags: 0
@@ -36649,6 +36555,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2027998017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027998011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12339c416a44b3f4592ea41525b306b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2027998012}
+  turnedOn: 0
 --- !u!1 &2033782163
 GameObject:
   m_ObjectHideFlags: 0

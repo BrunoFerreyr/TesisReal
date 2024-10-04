@@ -129,10 +129,10 @@ internal class SpeechRecognizer : MonoBehaviour {
                 if ( part != string.Empty && !doingAction)
                 {
                     PartialResultReceived?.Invoke(part);
+                    doingAction = true;
                     PlayerEvent.CallEvent(part);
                     _recognitionPartialResultsQueue.Clear();
                     Debug.Log("action");
-                    doingAction = true;
                 }                  
             }
             if ( _recognitionFinalResultsQueue.TryDequeue( out string result ) ) {
@@ -198,6 +198,7 @@ internal class SpeechRecognizer : MonoBehaviour {
     {
         if (_audioProvider is AudioRecorder mic)
         {
+            doingAction = false;
             mic.OnStart();
         }
     }

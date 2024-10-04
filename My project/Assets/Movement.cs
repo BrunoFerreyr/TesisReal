@@ -27,6 +27,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
+        Debug.Log(SpeechRecognizer.doingAction);
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if(isGrounded && velocity.y < 0)
         {

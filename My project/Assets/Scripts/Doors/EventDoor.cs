@@ -22,23 +22,26 @@ public class EventDoor : EventScript
 
     public override void DoEvent(int _level)
     {
-        base.DoEvent(_level);
+        
         Debug.Log("DoEvent");
 
         if (needsKey)
         {
             if (keyFounded)
             {
-                _doorAnimator.SetBool("Opened", true);
+                _doorAnimator.SetBool("turnedOn", true);
                 eventStarted = true;
             }
+            else
+            {
+                return;
+            }
         }
-        else
-        {
-            _doorAnimator.SetBool("Opened", true);
-
-            eventStarted = true;
-        }
+        Debug.Log("llega");
+        base.DoEvent(_level);
+        _doorAnimator.SetBool("turnedOn", true);
+        eventStarted = true;
+        
     }  
     
 
@@ -59,7 +62,7 @@ public class EventDoor : EventScript
         base.OnTriggerExit(other);
         if (other.gameObject.tag == "Player" && _doorAnimator.GetBool("Opened"))
         {
-            _doorAnimator.SetBool("Opened", false);
+            _doorAnimator.SetBool("turnedOn", false);
         }
     }
 }

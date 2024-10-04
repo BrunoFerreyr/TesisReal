@@ -29,7 +29,6 @@ public class EventScript : MonoBehaviour
         {
             SpeechRecognizer.doingAction = false;
         }
-        Debug.Log(SpeechRecognizer.doingAction);
     }
     public virtual void BuildEvent(int _type)
     {
@@ -48,6 +47,7 @@ public class EventScript : MonoBehaviour
     }
     public virtual void DoEvent(int level)
     {
+        Debug.Log("DoEvent");
         SpeechRecognizer.Stop();
         StartCoroutine(EndEvent());
     }
@@ -58,8 +58,6 @@ public class EventScript : MonoBehaviour
         yield return new WaitForSeconds(_callbackTime);
         Debug.Log("end");
         SpeechRecognizer.Play();
-
-        SpeechRecognizer.doingAction = false;
     }
     public void ChangeSprite()
     {

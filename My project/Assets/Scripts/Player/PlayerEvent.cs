@@ -9,10 +9,14 @@ public static class PlayerEvent
 
     public static void CallEvent(string speechWord)
     {
-
+        Debug.Log("call");
         if (eventsDictionary.ContainsKey(speechWord))
         {
             eventsDictionary.GetValueOrDefault(speechWord)?.Invoke();
+        }
+        else
+        {
+            SpeechRecognizer.Play();
         }
     }
 

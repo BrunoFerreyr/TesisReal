@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,13 @@ using UnityEngine;
 public class EventInteract : EventScript
 {
     // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected bool _doCallback = false;
+    [SerializeField] private Interactable _interactable = null;
+    void Start()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     {
         
     }
+
 
     // Update is called once per frame
     public override void DoEvent(int level)
@@ -20,10 +24,16 @@ public class EventInteract : EventScript
     public virtual void StartInteraction()
     {
         eventStarted = true;
+        _interactable.DoInteraction();
     }
 
     public virtual void EndInteraction()
     {
         eventStarted = false;
+    }
+
+    protected void AddCallback(Action callback)
+    {
+        _interactable.EndTurningOnEvent += callback;
     }
 }
