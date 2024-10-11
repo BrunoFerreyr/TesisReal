@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public int patternNumber;
 
     public bool changePattern;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,5 +45,4 @@ public class Enemy : MonoBehaviour
         }
 
     }
-
 }
