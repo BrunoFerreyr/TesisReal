@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+public class MouseLook : EventScript
 {
     public float mouseSensivity;
 
@@ -23,6 +23,8 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = targetFrameRate;
+
+        PlayerEvent.AddEventToList(id, BuildEvent);
     }
 
     // Update is called once per frame
@@ -43,17 +45,33 @@ public class MouseLook : MonoBehaviour
             transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
 
             //player.eulerAngles=new Vector3(0,this.transform.eulerAngles.y,0);
-        }
-     
-        if (Input.GetKeyDown(KeyCode.J))
+        }             
+    }
+
+    public override void DoEvent(int _level)
+    {
+        base.DoEvent(_level);
+        eventStarted = true;
+        ChangeLook();
+    }
+    public void ChangeLook()
+    {
+        if (!isThirdPerson)
         {
-            isThirdPerson = !isThirdPerson;
+            isThirdPerson = true;
             transform.position = playerHead.position;
             mouseX = 0;
             mouseY = 0;
             rotationX = playerHead.eulerAngles.x;
             rotationY = playerHead.eulerAngles.y;
+            eventStarted = false;
+            Movement.canMove = false;
+        }
+        else
+        {
+            isThirdPerson = false;
+            eventStarted = false;
+            Movement.canMove = true;
         }
     }
-    
 }

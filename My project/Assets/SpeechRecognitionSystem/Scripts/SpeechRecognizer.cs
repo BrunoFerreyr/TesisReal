@@ -132,7 +132,7 @@ internal class SpeechRecognizer : MonoBehaviour {
                     doingAction = true;
                     PlayerEvent.CallEvent(part);
                     _recognitionPartialResultsQueue.Clear();
-                    Debug.Log("action");
+                    Debug.Log("action" + part);
                 }                  
             }
             if ( _recognitionFinalResultsQueue.TryDequeue( out string result ) ) {
