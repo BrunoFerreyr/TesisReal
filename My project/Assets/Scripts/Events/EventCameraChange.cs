@@ -8,6 +8,6 @@ public class EventCameraChange : EventScript
     public override void DoEvent(int level)
     {
         base.DoEvent(level);
-        MouseLook.isThirdPerson = !MouseLook.isThirdPerson;
+        //MouseLook.isThirdPerson = !MouseLook.isThirdPerson;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : EventScript
+public class MouseLook : UIEventScript
 {
     public float mouseSensivity;
 

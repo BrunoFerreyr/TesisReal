@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventShowObject : EventScript
+public class EventShowObject : CollisionEventScript
 {
     public int number;
     [SerializeField] private float _activatedTime;

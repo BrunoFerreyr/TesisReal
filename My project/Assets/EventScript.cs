@@ -7,11 +7,7 @@ using UnityEngine.UI;
 public class EventScript : MonoBehaviour
 {
     [SerializeField]protected string id;
-    public GameObject eventObject;
     public bool eventStarted;
-    public int type;
-    public Image sprite;
-    public bool haveSprite;
 
     public bool doOnce;
 
@@ -30,20 +26,10 @@ public class EventScript : MonoBehaviour
             SpeechRecognizer.doingAction = false;
         }
     }
-    public virtual void BuildEvent(int _type)
-    {
-        if (!eventStarted && type == _type)
-        {
-            DoEvent(VoiceDetector.level);
-            //Sientra aca, hace el evento con normalidad.
-           /* coroutine = StartEvent();
-            StartCoroutine(coroutine);*/
-        }
-    }
     public virtual void BuildEvent()
     {
         if (!eventStarted)
-        DoEvent(VoiceDetector.level);
+        DoEvent(0);
     }
     public virtual void DoEvent(int level)
     {
@@ -59,46 +45,4 @@ public class EventScript : MonoBehaviour
         Debug.Log("end");
         SpeechRecognizer.Play();
     }
-    public void ChangeSprite()
-    {
-        if(haveSprite)
-        {
-            if (sprite == null)
-            {
-                Debug.Log("SPRITE NULL");
-            }
-            sprite.color = new Color(255, 255, 0);
-        }
-        
-    }
-    public void WhiteSprite()
-    {
-        if (haveSprite)
-        {
-            if (sprite == null)
-            {
-                Debug.Log("SPRITE NULL");
-            }
-            sprite.color = new Color(255, 255, 255);
-        }
-       
-    }
-
-    public virtual void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("coll");
-        if (other.gameObject.CompareTag("Player"))
-        {
-            PlayerEvent.AddEventToList(id,BuildEvent);
-        }
-    }
-
-    public virtual void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            PlayerEvent.DeleteEventFromList(id);
-        }
-    }
-    ///Cuando me acerco a un evento, la palabra se pone en amarillo. al interactuar apagar luz, pulsa e para interactuar.
 }

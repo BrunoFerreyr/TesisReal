@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventMoveObjects : EventScript
+public class EventMoveObjects : CollisionEventScript
 {
     // Start is called before the first frame update
     public float strenght;

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EventButton : EventInteract
 {
-    // Start is called before the first frame update
     public override void DoEvent(int level)
     {
         if (_doCallback)

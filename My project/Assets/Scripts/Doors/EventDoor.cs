@@ -5,7 +5,7 @@ using UnityEngine.Windows.Speech;
 using System;
 using System.Linq;
 
-public class EventDoor : EventScript
+public class EventDoor : CollisionEventScript
 {
     [SerializeField] Renderer padMaterial;
     [SerializeField] Animator _doorAnimator;

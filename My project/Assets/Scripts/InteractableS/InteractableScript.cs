@@ -9,7 +9,6 @@ public class InteractableScript : MonoBehaviour
     public bool hasInteracted;
     public bool isText = false;
 
-    public ShowTextScript textCanvas;
     public string text;
     // Start is called before the first frame update
     public virtual void DoInteract()
@@ -29,12 +28,12 @@ public class InteractableScript : MonoBehaviour
         {            
             if (!hasInteracted)
             {
-                textCanvas.ShowText(text);
+                //textCanvas.ShowText(text);
             }           
         }
         else
         {
-            textCanvas.HideText();
+           // textCanvas.HideText();
         }
     }
 }

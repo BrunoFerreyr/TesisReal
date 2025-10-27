@@ -778,11 +778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: palabras
-  eventObject: {fileID: 0}
   eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
   doOnce: 0
   wordsInGame: {fileID: 1751704186}
   wordPrefab: {fileID: 5437974313469771616, guid: fc2b83d360b105c49b7484b03f6a2c24,
@@ -2790,8 +2786,8 @@ RectTransform:
   m_Children:
   - {fileID: 428993567}
   - {fileID: 1278125973}
-  m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_Father: {fileID: 839778511}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6612,11 +6608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: "c\xE1mara"
-  eventObject: {fileID: 0}
   eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
   doOnce: 0
   mouseSensivity: 100
   playerHead: {fileID: 648762208}
@@ -9372,11 +9364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: "c\xE1mara"
-  eventObject: {fileID: 0}
   eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
   doOnce: 0
   mouseSensivity: 100
   playerHead: {fileID: 648762208}
@@ -13579,12 +13567,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: abrir
-  eventObject: {fileID: 1785658544}
   eventStarted: 0
-  type: 1
-  sprite: {fileID: 0}
-  haveSprite: 0
   doOnce: 0
+  eventObject: {fileID: 1785658544}
   padMaterial: {fileID: 1011468140}
   _doorAnimator: {fileID: 698741693}
   keyFounded: 0
@@ -16432,6 +16417,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837079078}
   m_Mesh: {fileID: 8691780276856062721, guid: 38153f973979621488bc93aa991b5669, type: 3}
+--- !u!1 &839778509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839778511}
+  - component: {fileID: 839778510}
+  m_Layer: 0
+  m_Name: UIDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &839778510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839778509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e69e42287d440d43a48a27c97a3514b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sigue
+  eventStarted: 0
+  doOnce: 0
+  uiCanvas: {fileID: 162187946}
+  text: {fileID: 1278125971}
+--- !u!4 &839778511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839778509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 162187951}
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &841955147
 GameObject:
   m_ObjectHideFlags: 0
@@ -18255,7 +18290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b9037095d5f7849a8929e0818b9003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 998439684}
 --- !u!1 &1001552464
 GameObject:
   m_ObjectHideFlags: 0
@@ -19574,13 +19608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dbcc177f12ba64c9958bb01f832b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  events: []
-  helpEvents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  testin: 0
 --- !u!1001 &1066424056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22563,12 +22590,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: empujar
-  eventObject: {fileID: 1205366388}
   eventStarted: 0
-  type: 2
-  sprite: {fileID: 0}
-  haveSprite: 1
   doOnce: 0
+  eventObject: {fileID: 1205366388}
   strenght: 1000
 --- !u!65 &1205366390
 BoxCollider:
@@ -24095,12 +24119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: abrir
-  eventObject: {fileID: 215463603}
   eventStarted: 0
-  type: 1
-  sprite: {fileID: 0}
-  haveSprite: 0
   doOnce: 0
+  eventObject: {fileID: 215463603}
   padMaterial: {fileID: 1711143324}
   _doorAnimator: {fileID: 1266529461}
   keyFounded: 0
@@ -25205,7 +25226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320421649}
   m_LocalRotation: {x: 0.17663307, y: 0.6846903, z: -0.19453128, w: 0.6798218}
-  m_LocalPosition: {x: -2.29, y: 3.005, z: -0.326}
+  m_LocalPosition: {x: -3.44, y: 3.005, z: -1.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28596,10 +28617,10 @@ GameObject:
   - component: {fileID: 1552545517}
   - component: {fileID: 1552545522}
   - component: {fileID: 1552545523}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 10
+  m_Name: EventInteract
   m_TagString: Event
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -28711,11 +28732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: tocar
-  eventObject: {fileID: 1552545515}
   eventStarted: 0
-  type: 3
-  sprite: {fileID: 0}
-  haveSprite: 1
   doOnce: 1
   _doCallback: 1
   _interactable: {fileID: 2027998017}
@@ -30394,12 +30411,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: mostrar
-  eventObject: {fileID: 1161721994}
   eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
   doOnce: 0
+  eventObject: {fileID: 1161721994}
   number: 0
   _activatedTime: 4
   door: {fileID: 698741689}
@@ -33836,9 +33850,7 @@ MonoBehaviour:
   doOnce: 1
   hasInteracted: 0
   isText: 0
-  textCanvas: {fileID: 162187947}
   text: Pulsa E para agarrar el chip
-  chipSystem: {fileID: 1059558455}
   canvasWords: {fileID: 69762100}
 --- !u!65 &1829531622
 BoxCollider:
@@ -35078,11 +35090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  eventObject: {fileID: 0}
   eventStarted: 0
-  type: 0
-  sprite: {fileID: 0}
-  haveSprite: 0
   doOnce: 0
   _doCallback: 0
   _interactable: {fileID: 0}
@@ -37824,7 +37832,6 @@ MonoBehaviour:
   doOnce: 1
   hasInteracted: 0
   isText: 0
-  textCanvas: {fileID: 162187947}
   text: Pulsa E para interactuar y subir de nivel
   canvas: {fileID: 1681243573}
   light: {fileID: 1280949317}

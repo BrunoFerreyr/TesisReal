@@ -23,6 +23,6 @@ public class computerSystem : InteractableScript
         light.color = Color.red;
         transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
         canvas.SetActive(false);   
-        VoiceDetector.level++;  
+        //VoiceDetector.level++;  
     }    
 }

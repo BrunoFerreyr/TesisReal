@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class UIWordsSystem : EventScript
+public class UIWordsSystem : UIEventScript
 {
     public static UIWordsSystem Instance;
     [SerializeField] private GameObject wordsInGame;
